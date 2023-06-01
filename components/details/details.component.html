@@ -1,0 +1,37 @@
+<div>
+  <div class="card-group">
+    <div class="card">
+      <img class="card-img-top" alt="">
+      <div class="card-body">
+        <ng-container *ngFor="let stock of companyIndexDetails; let index = index">
+          <div *ngIf="index == numberValue-1">
+            <div class="card">
+              <h5 class="card-title"> {{stock.id}} {{stock.companyName}}</h5>
+              <img class="card-img-top" src="{{stock.imageUrl}}" alt="Card image cap">
+              <div>{{stock.description}}</div>
+              <div class="container bg-light">
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" alt="">
+      <div class="card-body">
+        <div id="divChart" style="display: inline-block">
+          <canvas id="myChart"></canvas>
+        </div>
+        <ng-container *ngFor="let stocker of companyIndexDetails; let index = index">
+        <div *ngIf="index == numberValue-1">
+          <h5><b>{{stocker.companyName}} ({{stocker.stockPrefix}}):</b> </h5>
+        <h5>Actual price: {{actualCourse}}</h5>
+        <h5>Change in 7 days: <h5 style="color: green" *ngIf="courseSevenDaysValue<actualCourse">{{courseSevenDays}} %</h5><h5 style="color: red" *ngIf="courseSevenDaysValue>actualCourse">{{courseSevenDays}} %</h5></h5>
+        <h5>Change in 30 days: <h5 style="color: green" *ngIf="courseOneMonthValue<actualCourse">{{courseOneMonth}} %</h5><h5 style="color: red" *ngIf="courseSevenDaysValue>actualCourse">{{courseOneMonth}} %</h5></h5>
+        <h5>Change in 3 months: <h5 style="color: green" *ngIf="courseThreeMonthsValue<actualCourse">{{courseThreeMonths}} %</h5><h5 style="color: red" *ngIf="courseSevenDaysValue>actualCourse">{{courseThreeMonths}} %</h5></h5>
+        </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
